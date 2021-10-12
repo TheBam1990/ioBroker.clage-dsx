@@ -13,20 +13,18 @@
 
 ## clage-dsx adapter for ioBroker
 
-connektion to clage dsx wather Heater
+Anbindung für Clage Durchlauferhitzer DSX Server
 
-## Developer manual
-This section is intended for the developer. It can be deleted later
 
 ### Getting started
 
-Simply enter the IP address of your DSX server and enter your username and password.
-Attention, all fields must be filled in otherwise it won't work.
+Einfach die IP adresse ihres DSX Server eintragen sowie Benutzername und Passwort eingeben. 
+Achtung es müssen alle felder ausgefüllt sein sonst geht es nicht. 
 
-The Setpoint value is the temperature with a value without commer (Temp / 10)
+Der Wert Setpoint ist die Temperatur mit einem Wert ohne kommer (Temp /10)
 
-The FlowMax value, which ensures the flow in the device, can also be changed.
-As well as a name can also be entered
+Ebenso kann der Wert FlowMax verändert werden welcher für den Durchfluss im Gerät sorgt.
+Sowie ein Name kann auch eingegeben werden
 
 
 
