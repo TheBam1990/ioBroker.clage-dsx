@@ -20,6 +20,10 @@ This section is intended for the developer. It can be deleted later
 
 ### Getting started
 
+For German https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/README_DE.md
+API Doku: https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/CLAGE%20HomeServer%20API%20v1.3.4.pdf
+Connekting infos JS: https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/connektion.md
+
 Simply enter the IP address of your DSX server and enter your username and password.
 Attention, all fields must be filled in otherwise it won't work.
 
