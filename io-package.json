@@ -1,0 +1,102 @@
+{
+	"common": {
+		"name": "clage-dsx",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"titleLang": {
+			"en": "clage-dsx",
+			"de": "clage-dsx",
+			"ru": "clage-dsx",
+			"pt": "clage-dsx",
+			"nl": "clage-dsx",
+			"fr": "clage-dsx",
+			"it": "clage-dsx",
+			"es": "clage-dsx",
+			"pl": "clage-dsx",
+			"zh-cn": "clage-dsx"
+		},
+		"desc": {
+			"en": "connektion to clage dsx wather Heater",
+			"de": "connektion to clage dsx wather Heater",
+			"ru": "connektion to clage dsx wather Heater",
+			"pt": "connektion to clage dsx wather Heater",
+			"nl": "connektion to clage dsx wather Heater",
+			"fr": "connektion to clage dsx wather Heater",
+			"it": "connektion to clage dsx wather Heater",
+			"es": "connektion to clage dsx wather Heater",
+			"pl": "connektion to clage dsx wather Heater",
+			"zh-cn": "connektion to clage dsx wather Heater"
+		},
+		"authors": [
+			"TheBam <elektrobam@gmx.de>"
+		],
+		"keywords": [
+			"water heater",
+			"clage"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"icon": "clage-dsx.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/TheBam1990/ioBroker.clage-dsx/master/admin/clage-dsx.png",
+		"readme": "https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "hardware",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "poll",
+		"materialize": true,
+		"dependencies": [
+			{
+				"js-controller": ">=2.0.0"
+			}
+		]
+	},
+	"encryptedNative": [
+        "apiKey"
+    ],
+    "protectedNative": [
+        "apiKey"
+    ],
+	"native": {
+		"port": "",
+		"apiKey": "",
+		"adresse": ""
+	},
+	"objects": [],
+	"instanceObjects": [{
+		"_id": "info",
+		"type": "channel",
+		"common": {
+			"name": "Information"
+		},
+		"native": {}
+	}, {
+	"_id": "info.connection",
+	"type": "state",
+	"common": {
+	  "role": "indicator.connected",
+	  "name": "If connected to my gateway",
+	  "type": "boolean",
+	  "read": true,
+	  "write": false,
+	  "def": false
+	},
+	"native": {}
+  }
+]
+}
