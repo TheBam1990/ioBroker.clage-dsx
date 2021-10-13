@@ -13,7 +13,7 @@
 
 ## clage-dsx adapter for ioBroker
 
-connektion to clage dsx wather Heater
+connection to clage dsx wather Heater
 
 ## Developer manual
 This section is intended for the developer. It can be deleted later

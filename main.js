@@ -18,6 +18,9 @@ let getAllZonesURL;	//vollständige adresse für get all zone
 let serverUrl;
 let benutzer;
 let password;
+let time;
+let time1;
+let time2;
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
@@ -73,7 +76,7 @@ class ClageDsx extends utils.Adapter {
 		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
 		*/
 		if (devicesin === true) {
-		setTimeout(function(){ das.readchanges(); }, 3000);
+		time=setTimeout(function(){ das.readchanges(); }, 3000);
 		}
 		
 		
@@ -106,10 +109,10 @@ class ClageDsx extends utils.Adapter {
 	onUnload(callback) {
 		try {
 			// Here you must clear all timeouts or intervals that may still be active
-			// clearTimeout(timeout1);
-			// clearTimeout(timeout2);
-			// ...
-			// clearInterval(interval1);
+			 clearTimeout(time);
+			 clearTimeout(time1);
+			 clearTimeout(time2);
+			
 
 			callback();
 		} catch (e) {
@@ -132,7 +135,7 @@ class ClageDsx extends utils.Adapter {
 						password: password,
 					}
 				});
-				setTimeout(async function(){ 
+				time2=setTimeout(async function(){ 
 					//das.log.info("daten "+JSON.stringify(resp.data)); 
 					const result3=resp.data;
 					for (const i in result3.devices){
@@ -168,7 +171,7 @@ class ClageDsx extends utils.Adapter {
 				
 				
 				}, 3000);
-				setTimeout(function(){ das.readchanges(); }, 3000);
+				time1=setTimeout(function(){ das.readchanges(); }, 3000);
 				//this.readchanges();
 
 
