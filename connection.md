@@ -20,3 +20,14 @@ username: benutzer,
 password: password,
 }
 });
+
+Als Beispiel:
+const resp =instance.get("https://"+URL+"/devices/status/" {
+
+auth:{
+
+username: admin,
+
+password: admin,
+}
+});
