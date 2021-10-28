@@ -164,6 +164,7 @@ class ClageDsx extends utils.Adapter {
 						await das.setStateChangedAsync(generatedArray[i].busid+"."+"Error", { val: objektarry[i].error, ack: true });
 						const setpoint2 =objektarry[i].setpoint/10;
 						await das.setStateChangedAsync(generatedArray[i].busid+"."+"Themperatur", { val: setpoint2, ack: true });
+						await das.setStateChangedAsync("info.connection", {val: true, ack: true});
 						
 		
 					}
