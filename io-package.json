@@ -29,16 +29,17 @@
 			"zh-cn": "clage-dsx"
 		},
 		"desc": {
-			"en": "connektion to clage dsx wather Heater",
-			"de": "connektion to clage dsx wather Heater",
-			"ru": "connektion to clage dsx wather Heater",
-			"pt": "connektion to clage dsx wather Heater",
-			"nl": "connektion to clage dsx wather Heater",
-			"fr": "connektion to clage dsx wather Heater",
-			"it": "connektion to clage dsx wather Heater",
-			"es": "connektion to clage dsx wather Heater",
-			"pl": "connektion to clage dsx wather Heater",
-			"zh-cn": "connektion to clage dsx wather Heater"
+			"en": "connection to clage dsx wather Heater",
+			"de": "verbindung zu clage dsx wather Heater",
+			"ru": "подключение к clage dsx wather Heater",
+			"pt": "conexão com o aquecedor de wather dsx clage",
+			"nl": "verbinding met klei dsxwaze Heater",
+			"fr": "connexion à clage dsx wather Heater",
+			"it": "connessione al clage dsx wather Heater",
+			"es": "conexión a clage dsx wather Heater",
+			"pl": "w związku z tym księgowy",
+			"uk": "підключення до клітки dsx ватер нагрівач",
+			"zh-cn": "2. 冲突"
 		},
 		"authors": [
 			"TheBam <elektrobam@gmx.de>"
@@ -62,7 +63,12 @@
 		"materialize": true,
 		"dependencies": [
 			{
-				"js-controller": ">=2.0.0"
+				"js-controller": ">=4.0.0"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">= 4.0.9"
 			}
 		]
 	},
