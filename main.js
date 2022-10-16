@@ -12,15 +12,19 @@ const axios = require('axios').default;
 const states = require(`${__dirname}/lib/states.js`); // Load attribute library
 let devicesin;	//hilsvariable ob daten eingetragen sind oder nicht
 let das; //hilfsvariable für this.
-const generatedArray = [];	//erstelltes Array 
+const generatedArray = [];	//erstelltes Array
 const objektarry = [];
 let getAllZonesURL;	//vollständige adresse für get all zone
 let serverUrl;
 let benutzer;
 let password;
 let time;
-let time1;
-let time2;
+const instance = axios.create({
+	httpsAgent: new https.Agent({
+		rejectUnauthorized: false
+	})
+});
+
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
@@ -60,8 +64,8 @@ class ClageDsx extends utils.Adapter {
 			devicesin=true;						//Variable setzen wenn adresse eingetragen ist
 			await this.setStateAsync("info.connection", { val: true, ack: true });
 			//this.log.info("IP adresse: " + serverUrl);
-			getAllZonesURL= "https://"+serverUrl+"/devices"; 
-			this.getHttpData(getAllZonesURL);
+			getAllZonesURL= "https://"+serverUrl+"/devices";
+			await this.getHttpData(getAllZonesURL);
 		} else {
 			devicesin=false;
 			//this.log.info("http anfrage fehlgeschlagen");
@@ -69,17 +73,17 @@ class ClageDsx extends utils.Adapter {
 			return;
 		}
 
-		
+
 		/*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
 		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
 		*/
 		if (devicesin === true) {
-		time=setTimeout(function(){ das.readchanges(); }, 3000);
+			await das.readchanges();
 		}
-		
-		
+
+
 		/*
 			setState examples
 			you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
@@ -109,77 +113,72 @@ class ClageDsx extends utils.Adapter {
 	onUnload(callback) {
 		try {
 			// Here you must clear all timeouts or intervals that may still be active
-			 clearTimeout(time);
-			 clearTimeout(time1);
-			 clearTimeout(time2);
-			
-
+			clearTimeout(time);
 			callback();
 		} catch (e) {
 			callback();
 		}
 	}
 	async readchanges() {
+		if (time) {
+			clearTimeout(time);
+			time = null;
+		}
 		for (const papier in generatedArray) {
 		try {
 			//das.log.info("string "+generatedArray[papier].id);
 			//das.log.info("url "+"https://"+serverUrl+"/devices/status/"+generatedArray[papier].id);
-			const instance = axios.create({
-				httpsAgent: new https.Agent({  
-				  rejectUnauthorized: false
-					})
-				  });
-				  const resp =await instance.get("https://"+serverUrl+"/devices/status/"+generatedArray[papier].id, {
-					auth:{
-						username: benutzer,
-						password: password,
-					}
-				});
-				time2=setTimeout(async function(){ 
-					//das.log.info("daten "+JSON.stringify(resp.data)); 
-					const result3=resp.data;
-					for (const i in result3.devices){
+			const resp = await instance.get("https://"+serverUrl+"/devices/status/"+generatedArray[papier].id, {
+				auth:{
+					username: benutzer,
+					password: password,
+				}
+			});
+			//das.log.info("daten "+JSON.stringify(resp.data));
+			const result3=resp.data;
+			for (const i in result3.devices){
 
-						objektarry[i] = {
-							"id" : result3.devices[i].id,
-							"busid" : result3.devices[i].busId,
-							"name" : result3.devices[i].name,
-							"error" : result3.error,
-							"setpoint" : result3.devices[i].status.setpoint,
-							"tLimit" : result3.devices[i].status.tLimit,
-							"flow" : result3.devices[i].status.flow,
-							"flowMax" : result3.devices[i].status.flowMax,
-							"power" : result3.devices[i].status.power,
-							"flags" : result3.devices[i].status.flags,
-						};
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"Name", { val: objektarry[i].name, ack: true });
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"busID", { val: objektarry[i].busid, ack: true });
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"id", { val: objektarry[i].id, ack: true });
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"Setpoint", { val: objektarry[i].setpoint, ack: true });
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"tLimit", { val: objektarry[i].tLimit, ack: true });
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"flow", { val: objektarry[i].flow, ack: true });
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"flowMax", { val: objektarry[i].flowMax, ack: true });
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"power", { val: objektarry[i].power, ack: true });
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"flags", { val: objektarry[i].flags, ack: true });
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"Error", { val: objektarry[i].error, ack: true });
-						const setpoint2 =objektarry[i].setpoint/10;
-						await das.setStateChangedAsync(generatedArray[i].busid+"."+"Themperatur", { val: setpoint2, ack: true });
-						await das.setStateChangedAsync("info.connection", {val: true, ack: true});
-						
-		
-					}
-					//das.log.info(`erstelltes array ${JSON.stringify(objektarry)}`);
-				
-				
-				}, 3000);
-				time1=setTimeout(function(){ das.readchanges(); }, 3000);
-				//this.readchanges();
+				objektarry[i] = {
+					"id" : result3.devices[i].id,
+					"busid" : result3.devices[i].busId,
+					"name" : result3.devices[i].name,
+					"error" : result3.error,
+					"setpoint" : result3.devices[i].status.setpoint,
+					"tLimit" : result3.devices[i].status.tLimit,
+					"flow" : result3.devices[i].status.flow,
+					"flowMax" : result3.devices[i].status.flowMax,
+					"power" : result3.devices[i].status.power,
+					"flags" : result3.devices[i].status.flags,
+				};
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"Name", { val: objektarry[i].name, ack: true });
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"busID", { val: objektarry[i].busid, ack: true });
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"id", { val: objektarry[i].id, ack: true });
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"Setpoint", { val: objektarry[i].setpoint, ack: true });
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"tLimit", { val: objektarry[i].tLimit, ack: true });
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"flow", { val: objektarry[i].flow, ack: true });
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"flowMax", { val: objektarry[i].flowMax, ack: true });
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"power", { val: objektarry[i].power, ack: true });
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"flags", { val: objektarry[i].flags, ack: true });
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"Error", { val: objektarry[i].error, ack: true });
+				const setpoint2 =objektarry[i].setpoint/10;
+				await das.setStateChangedAsync(generatedArray[i].busid+"."+"Themperatur", { val: setpoint2, ack: true });
+				await das.setStateChangedAsync("info.connection", {val: true, ack: true});
 
 
-		}catch (e) {
+			}
+			//das.log.info(`erstelltes array ${JSON.stringify(objektarry)}`);
+
+			time = das.setTimeout(() => {
+				time = null;
+				das.readchanges()
+			}, 3000);
+		} catch (e) {
 			das.log.error(e);
 			await this.setStateAsync("info.connection", {val: false, ack: true});
-			this.readchanges();
+			time = das.setTimeout(() => {
+				time = null;
+				das.readchanges()
+			}, 3000);
 			return;
 		}
 	}
@@ -188,12 +187,7 @@ class ClageDsx extends utils.Adapter {
 	//Anfrage wie viele Geräte
 	async getHttpData(apiAdres){
 		try {
-			const instance = axios.create({
-			httpsAgent: new https.Agent({  
-	  		rejectUnauthorized: false
-				})
-  			});
-  			const resp =await instance.get(apiAdres, {
+  			const resp = await instance.get(apiAdres, {
 				auth:{
 					username: benutzer,
 					password: password,
@@ -221,31 +215,31 @@ class ClageDsx extends utils.Adapter {
 					common: {
 						name: "Name",
 						type: "string",
-						role: "indicator",
+						role: "info.name",
 						read: true,
 						write: true,
 					},
 					native: {id},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"busID", {
 					type: "state",
 					common: {
 						name: "BusId",
 						type: "number",
-						role: "indicator",
+						role: "info.address",
 						read: true,
 						write: false,
 					},
 					native: {},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"id", {
 					type: "state",
 					common: {
 						name: "id",
 						type: "string",
-						role: "indicator",
+						role: "info.address",
 						read: true,
 						write: false,
 					},
@@ -256,103 +250,103 @@ class ClageDsx extends utils.Adapter {
 					common: {
 						name: "Setpoint",
 						type: "number",
-						role: "indicator",
+						role: "level",
 						read: true,
 						write: true,
 					},
 					native: {id},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"tLimit", {
 					type: "state",
 					common: {
 						name: "tLimit",
 						type: "number",
-						role: "indicator",
+						role: "level",
 						read: true,
 						write: true,
 					},
 					native: {},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"Error", {
 					type: "state",
 					common: {
-						name: "testVariable",
+						name: "Error",
 						type: "number",
-						role: "indicator",
+						role: "value",
 						read: true,
 						write: false,
 					},
 					native: {},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"flags", {
 					type: "state",
 					common: {
 						name: "flags",
 						type: "number",
-						role: "indicator",
+						role: "value",
 						read: true,
 						write: false,
 					},
 					native: {},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"power", {
 					type: "state",
 					common: {
 						name: "Power",
 						type: "number",
-						role: "indicator",
+						role: "value",
 						read: true,
 						write: false,
 					},
 					native: {},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"Themperatur", {
 					type: "state",
 					common: {
 						name: "Water",
 						type: "number",
-						role: "indicator",
+						role: "value.temperature",
 						read: true,
 						write: false,
 					},
 					native: {},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"error_text", {
 					type: "state",
 					common: {
 						name: "Error_Text",
 						type: "string",
-						role: "indicator",
+						role: "text",
 						read: true,
 						write: false,
 					},
 					native: {},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"flow", {
 					type: "state",
 					common: {
 						name: "flow",
 						type: "number",
-						role: "indicator",
+						role: "value",
 						read: true,
 						write: false,
 					},
 					native: {},
 				});
-		
+
 				await this.setObjectNotExistsAsync(generatedArray[test].busid+"."+"flowMax", {
 					type: "state",
 					common: {
 						name: "flowMax",
 						type: "number",
-						role: "indicator",
+						role: "level",
 						read: true,
 						write: true,
 					},
@@ -395,12 +389,6 @@ class ClageDsx extends utils.Adapter {
 	 */
 	async onStateChange(id, state) {
 		if (state && state.ack === false) {
-			const instance2 = axios.create({
-				httpsAgent: new https.Agent({  
-				  rejectUnauthorized: false
-					})
-				  });
-				  //const resp;
 			// The state was changed
 			//this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 			const tmp = id.split(".");
@@ -410,7 +398,7 @@ class ClageDsx extends utils.Adapter {
 			//this.log.info(`state ${objName2}`);
 			switch (objName) {
 				case "Setpoint":
-					await instance2.put("https://"+serverUrl+"/devices/setpoint/"+objName2 ,"data="+state.val, {
+					await instance.put("https://"+serverUrl+"/devices/setpoint/"+objName2 ,"data="+state.val, {
 				auth:{
 					username: benutzer,
 						password: password,
@@ -418,14 +406,14 @@ class ClageDsx extends utils.Adapter {
 			});
 					break;
 
-				case "flowMax":	
+				case "flowMax":
 				//this.log.info("flow geweschselt");
 				/*const instance = axios.create({
-					httpsAgent: new https.Agent({  
+					httpsAgent: new https.Agent({
 					  rejectUnauthorized: false
 						})
 					  });*/
-				await instance2.put("https://"+serverUrl+"/devices/setup/"+objName2 ,"flowMax="+state.val, {
+				await instance.put("https://"+serverUrl+"/devices/setup/"+objName2 ,"flowMax="+state.val, {
             auth:{
                 username: benutzer,
 					password: password,
@@ -435,7 +423,7 @@ class ClageDsx extends utils.Adapter {
 					break;
 
 				case "Name":
-					await instance2.put("https://"+serverUrl+"/devices/"+objName2 ,"name="+state.val, {
+					await instance.put("https://"+serverUrl+"/devices/"+objName2 ,"name="+state.val, {
             auth:{
                 username: benutzer,
 					password: password,
@@ -445,7 +433,7 @@ class ClageDsx extends utils.Adapter {
 					case "Themperatur":
 						// @ts-ignore
 						const setpoint2=state.val*10;
-						await instance2.put("https://"+serverUrl+"/devices/setpoint/"+objName2 ,"data="+setpoint2, {
+						await instance.put("https://"+serverUrl+"/devices/setpoint/"+objName2 ,"data="+setpoint2, {
 					auth:{
 						username: benutzer,
 							password: password,
