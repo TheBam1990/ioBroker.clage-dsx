@@ -1,31 +1,16 @@
 {
   "type": "panel",
-  "i18n": false,
+  "i18n": true,
   "items": {
     "intro": {
       "type": "infoBox",
-      "text": {
-        "en": "Enter the CLAGE Home Server address and its API credentials. All three fields are required.",
-        "de": "Adresse des CLAGE Home Servers und dessen API-Zugangsdaten eingeben. Alle drei Felder werden benoetigt."
-      },
+      "text": "Enter the CLAGE Home Server address and its API credentials. All three fields are required.",
       "newLine": true,
       "xs": 12
     },
     "adresse": {
       "type": "ip",
-      "label": {
-        "en": "CLAGE Home Server IP address",
-        "de": "IP-Adresse des CLAGE Home Servers",
-        "ru": "IP-адрес CLAGE Home Server",
-        "pt": "Endereço IP do CLAGE Home Server",
-        "nl": "IP-adres van de CLAGE Home Server",
-        "fr": "Adresse IP du CLAGE Home Server",
-        "it": "Indirizzo IP del CLAGE Home Server",
-        "es": "Dirección IP del CLAGE Home Server",
-        "pl": "Adres IP serwera CLAGE Home Server",
-        "uk": "IP-адреса CLAGE Home Server",
-        "zh-cn": "CLAGE Home Server IP 地址"
-      },
+      "label": "CLAGE Home Server IP address",
       "listenOnAllPorts": false,
       "onlyIp4": true,
       "noInternal": false,
@@ -37,32 +22,8 @@
     },
     "port": {
       "type": "text",
-      "label": {
-        "en": "API user name",
-        "de": "API-Benutzername",
-        "ru": "Имя пользователя API",
-        "pt": "Nome de utilizador da API",
-        "nl": "API-gebruikersnaam",
-        "fr": "Nom d'utilisateur API",
-        "it": "Nome utente API",
-        "es": "Nombre de usuario de la API",
-        "pl": "Nazwa użytkownika API",
-        "uk": "Ім'я користувача API",
-        "zh-cn": "API 用户名"
-      },
-      "help": {
-        "en": "The historical configuration key is named port, but this value is the user name.",
-        "de": "Der historische Konfigurationsschluessel heisst port, der Wert ist jedoch der Benutzername.",
-        "ru": "Исторический ключ называется port, но это имя пользователя.",
-        "pt": "A chave histórica chama-se port, mas este valor é o nome de utilizador.",
-        "nl": "De historische sleutel heet port, maar deze waarde is de gebruikersnaam.",
-        "fr": "La clé historique s'appelle port, mais cette valeur est le nom d'utilisateur.",
-        "it": "La chiave storica si chiama port, ma questo valore è il nome utente.",
-        "es": "La clave histórica se llama port, pero este valor es el nombre de usuario.",
-        "pl": "Historyczny klucz nazywa się port, ale ta wartość jest nazwą użytkownika.",
-        "uk": "Історичний ключ називається port, але це ім'я користувача.",
-        "zh-cn": "历史配置键名为 port，但该值实际是用户名。"
-      },
+      "label": "API user name",
+      "help": "The historical configuration key is named port, but this value is the user name.",
       "xs": 12,
       "sm": 6,
       "md": 6,
@@ -71,19 +32,7 @@
     },
     "apiKey": {
       "type": "password",
-      "label": {
-        "en": "API password",
-        "de": "API-Passwort",
-        "ru": "Пароль API",
-        "pt": "Palavra-passe da API",
-        "nl": "API-wachtwoord",
-        "fr": "Mot de passe API",
-        "it": "Password API",
-        "es": "Contraseña de la API",
-        "pl": "Hasło API",
-        "uk": "Пароль API",
-        "zh-cn": "API 密码"
-      },
+      "label": "API password",
       "visible": true,
       "xs": 12,
       "sm": 6,
@@ -93,38 +42,14 @@
     },
     "advancedInfo": {
       "type": "header",
-      "text": {
-        "en": "Polling",
-        "de": "Abfrageintervalle",
-        "ru": "Интервалы опроса",
-        "pt": "Intervalos de consulta",
-        "nl": "Polling-intervallen",
-        "fr": "Intervalles d'interrogation",
-        "it": "Intervalli di polling",
-        "es": "Intervalos de consulta",
-        "pl": "Interwały odpytywania",
-        "uk": "Інтервали опитування",
-        "zh-cn": "轮询间隔"
-      },
+      "text": "Polling",
       "size": 2,
       "newLine": true,
       "xs": 12
     },
     "activePollMs": {
       "type": "number",
-      "label": {
-        "en": "Active-device interval (ms)",
-        "de": "Intervall bei Wasserfluss (ms)",
-        "ru": "Интервал активного устройства (мс)",
-        "pt": "Intervalo do dispositivo ativo (ms)",
-        "nl": "Interval actief apparaat (ms)",
-        "fr": "Intervalle appareil actif (ms)",
-        "it": "Intervallo dispositivo attivo (ms)",
-        "es": "Intervalo del dispositivo activo (ms)",
-        "pl": "Interwał aktywnego urządzenia (ms)",
-        "uk": "Інтервал активного пристрою (мс)",
-        "zh-cn": "活动设备间隔（毫秒）"
-      },
+      "label": "Active-device interval (ms)",
       "min": 1000,
       "xs": 12,
       "sm": 6,
@@ -134,19 +59,7 @@
     },
     "idlePollMs": {
       "type": "number",
-      "label": {
-        "en": "Idle-device interval (ms)",
-        "de": "Intervall im Ruhezustand (ms)",
-        "ru": "Интервал ожидания (мс)",
-        "pt": "Intervalo em repouso (ms)",
-        "nl": "Interval in rust (ms)",
-        "fr": "Intervalle au repos (ms)",
-        "it": "Intervallo inattivo (ms)",
-        "es": "Intervalo en reposo (ms)",
-        "pl": "Interwał bezczynności (ms)",
-        "uk": "Інтервал очікування (мс)",
-        "zh-cn": "空闲设备间隔（毫秒）"
-      },
+      "label": "Idle-device interval (ms)",
       "min": 5000,
       "xs": 12,
       "sm": 6,
@@ -156,19 +69,7 @@
     },
     "detailsPollMs": {
       "type": "number",
-      "label": {
-        "en": "History/setup interval (ms)",
-        "de": "Intervall für Historie/Einstellungen (ms)",
-        "ru": "Интервал истории/настроек (мс)",
-        "pt": "Intervalo de histórico/configuração (ms)",
-        "nl": "Interval historie/instellingen (ms)",
-        "fr": "Intervalle historique/réglages (ms)",
-        "it": "Intervallo cronologia/impostazioni (ms)",
-        "es": "Intervalo de historial/ajustes (ms)",
-        "pl": "Interwał historii/ustawień (ms)",
-        "uk": "Інтервал історії/налаштувань (мс)",
-        "zh-cn": "历史/设置间隔（毫秒）"
-      },
+      "label": "History/setup interval (ms)",
       "min": 60000,
       "xs": 12,
       "sm": 6,
@@ -178,19 +79,7 @@
     },
     "historyDays": {
       "type": "number",
-      "label": {
-        "en": "Consumption history (days)",
-        "de": "Verbrauchshistorie (Tage)",
-        "ru": "История потребления (дни)",
-        "pt": "Histórico de consumo (dias)",
-        "nl": "Verbruiksgeschiedenis (dagen)",
-        "fr": "Historique de consommation (jours)",
-        "it": "Cronologia dei consumi (giorni)",
-        "es": "Historial de consumo (días)",
-        "pl": "Historia zużycia (dni)",
-        "uk": "Історія споживання (дні)",
-        "zh-cn": "用量历史（天）"
-      },
+      "label": "Consumption history (days)",
       "min": 1,
       "xs": 12,
       "sm": 6,
@@ -200,19 +89,7 @@
     },
     "longPolling": {
       "type": "checkbox",
-      "label": {
-        "en": "Use device-list long polling",
-        "de": "Long Polling für die Geräteliste verwenden",
-        "ru": "Использовать long polling списка устройств",
-        "pt": "Usar long polling da lista de dispositivos",
-        "nl": "Long polling voor apparatenlijst gebruiken",
-        "fr": "Utiliser le long polling de la liste des appareils",
-        "it": "Usa long polling per l'elenco dispositivi",
-        "es": "Usar long polling para la lista de dispositivos",
-        "pl": "Użyj long pollingu listy urządzeń",
-        "uk": "Використовувати long polling списку пристроїв",
-        "zh-cn": "使用设备列表长轮询"
-      },
+      "label": "Use device-list long polling",
       "xs": 12,
       "sm": 6,
       "md": 3,

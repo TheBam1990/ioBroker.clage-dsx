@@ -1,0 +1,13 @@
+{
+  "Enter the CLAGE Home Server address and its API credentials. All three fields are required.": "Saisissez l’adresse du CLAGE Home Server et ses identifiants API. Les trois champs sont obligatoires.",
+  "CLAGE Home Server IP address": "Adresse IP du CLAGE Home Server",
+  "API user name": "Nom d’utilisateur API",
+  "The historical configuration key is named port, but this value is the user name.": "La clé historique s’appelle port, mais cette valeur est le nom d’utilisateur.",
+  "API password": "Mot de passe API",
+  "Polling": "Intervalles d’interrogation",
+  "Active-device interval (ms)": "Intervalle appareil actif (ms)",
+  "Idle-device interval (ms)": "Intervalle au repos (ms)",
+  "History/setup interval (ms)": "Intervalle historique/réglages (ms)",
+  "Consumption history (days)": "Historique de consommation (jours)",
+  "Use device-list long polling": "Utiliser le long polling de la liste des appareils"
+}

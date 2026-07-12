@@ -1,0 +1,13 @@
+{
+  "Enter the CLAGE Home Server address and its API credentials. All three fields are required.": "请输入 CLAGE Home Server 地址及其 API 凭据。三个字段均为必填项。",
+  "CLAGE Home Server IP address": "CLAGE Home Server IP 地址",
+  "API user name": "API 用户名",
+  "The historical configuration key is named port, but this value is the user name.": "历史配置键名为 port，但该值实际是用户名。",
+  "API password": "API 密码",
+  "Polling": "轮询间隔",
+  "Active-device interval (ms)": "活动设备间隔（毫秒）",
+  "Idle-device interval (ms)": "空闲设备间隔（毫秒）",
+  "History/setup interval (ms)": "历史/设置间隔（毫秒）",
+  "Consumption history (days)": "用量历史（天）",
+  "Use device-list long polling": "使用设备列表长轮询"
+}

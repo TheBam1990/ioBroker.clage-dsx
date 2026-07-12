@@ -87,15 +87,7 @@ Für Änderungen wird derselbe Aufbau mit numerischer `id` auf `timers.updateJso
 - Home-Server-Informationen, adaptive Abfrage und sequenzielles HTTP Long Polling ergänzt
 - Abfrageintervalle konfigurierbar gemacht
 
-### 0.0.2
-
-- Laufzeitabhängigkeiten für aktuelle ioBroker- und Node.js-Versionen aktualisiert
-- Administrationsoberfläche auf responsive JSON Config umgestellt
-- Aktuelle ioBroker-Paketmetadaten und CI-Tests für Node.js 22 und 24 ergänzt
-
-### 0.0.1
-
-- Erstveröffentlichung
+[Ältere Changelog-Einträge](CHANGELOG_OLD.md)
 
 ## Lizenz
 
