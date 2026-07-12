@@ -40,7 +40,7 @@
     "@types/chai": "^4.3.3",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.20.1",
-    "chai": "^4.3.6",
+    "chai": "^6.2.2",
     "mocha": "^11.7.6",
     "typescript": "^5.9.3"
   },
