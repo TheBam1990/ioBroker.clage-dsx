@@ -15,36 +15,81 @@
       "type": "ip",
       "label": {
         "en": "CLAGE Home Server IP address",
-        "de": "IP-Adresse des CLAGE Home Servers"
+        "de": "IP-Adresse des CLAGE Home Servers",
+        "ru": "IP-адрес CLAGE Home Server",
+        "pt": "Endereço IP do CLAGE Home Server",
+        "nl": "IP-adres van de CLAGE Home Server",
+        "fr": "Adresse IP du CLAGE Home Server",
+        "it": "Indirizzo IP del CLAGE Home Server",
+        "es": "Dirección IP del CLAGE Home Server",
+        "pl": "Adres IP serwera CLAGE Home Server",
+        "uk": "IP-адреса CLAGE Home Server",
+        "zh-cn": "CLAGE Home Server IP 地址"
       },
       "listenOnAllPorts": false,
       "onlyIp4": true,
       "noInternal": false,
       "xs": 12,
-      "sm": 6
+      "sm": 6,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
     },
     "port": {
       "type": "text",
       "label": {
         "en": "API user name",
-        "de": "API-Benutzername"
+        "de": "API-Benutzername",
+        "ru": "Имя пользователя API",
+        "pt": "Nome de utilizador da API",
+        "nl": "API-gebruikersnaam",
+        "fr": "Nom d'utilisateur API",
+        "it": "Nome utente API",
+        "es": "Nombre de usuario de la API",
+        "pl": "Nazwa użytkownika API",
+        "uk": "Ім'я користувача API",
+        "zh-cn": "API 用户名"
       },
       "help": {
         "en": "The historical configuration key is named port, but this value is the user name.",
-        "de": "Der historische Konfigurationsschluessel heisst port, der Wert ist jedoch der Benutzername."
+        "de": "Der historische Konfigurationsschluessel heisst port, der Wert ist jedoch der Benutzername.",
+        "ru": "Исторический ключ называется port, но это имя пользователя.",
+        "pt": "A chave histórica chama-se port, mas este valor é o nome de utilizador.",
+        "nl": "De historische sleutel heet port, maar deze waarde is de gebruikersnaam.",
+        "fr": "La clé historique s'appelle port, mais cette valeur est le nom d'utilisateur.",
+        "it": "La chiave storica si chiama port, ma questo valore è il nome utente.",
+        "es": "La clave histórica se llama port, pero este valor es el nombre de usuario.",
+        "pl": "Historyczny klucz nazywa się port, ale ta wartość jest nazwą użytkownika.",
+        "uk": "Історичний ключ називається port, але це ім'я користувача.",
+        "zh-cn": "历史配置键名为 port，但该值实际是用户名。"
       },
       "xs": 12,
-      "sm": 6
+      "sm": 6,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
     },
     "apiKey": {
       "type": "password",
       "label": {
         "en": "API password",
-        "de": "API-Passwort"
+        "de": "API-Passwort",
+        "ru": "Пароль API",
+        "pt": "Palavra-passe da API",
+        "nl": "API-wachtwoord",
+        "fr": "Mot de passe API",
+        "it": "Password API",
+        "es": "Contraseña de la API",
+        "pl": "Hasło API",
+        "uk": "Пароль API",
+        "zh-cn": "API 密码"
       },
       "visible": true,
       "xs": 12,
-      "sm": 6
+      "sm": 6,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
     }
   }
 }

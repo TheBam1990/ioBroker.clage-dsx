@@ -125,15 +125,12 @@ class ClageDsx extends utils.Adapter {
       try {
         //das.log.info("string "+generatedArray[papier].id);
         //das.log.info("url "+"https://"+serverUrl+"/devices/status/"+generatedArray[papier].id);
-        const resp = await instance.get(
-          `https://${serverUrl}/devices/status/${generatedArray[papier].id}`,
-          {
-            auth: {
-              username: benutzer,
-              password: password,
-            },
+        const resp = await instance.get(`https://${serverUrl}/devices/status/${generatedArray[papier].id}`, {
+          auth: {
+            username: benutzer,
+            password: password,
           },
-        );
+        });
         //das.log.info("daten "+JSON.stringify(resp.data));
         const result3 = resp.data;
         for (const i in result3.devices) {
@@ -149,51 +146,48 @@ class ClageDsx extends utils.Adapter {
             power: result3.devices[i].status.power,
             flags: result3.devices[i].status.flags,
           };
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `Name`,
-            { val: objektarry[i].name, ack: true },
-          );
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `busID`,
-            { val: objektarry[i].busid, ack: true },
-          );
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `Name`, {
+            val: objektarry[i].name,
+            ack: true,
+          });
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `busID`, {
+            val: objektarry[i].busid,
+            ack: true,
+          });
           await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `id`, {
             val: objektarry[i].id,
             ack: true,
           });
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `Setpoint`,
-            { val: objektarry[i].setpoint, ack: true },
-          );
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `tLimit`,
-            { val: objektarry[i].tLimit, ack: true },
-          );
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `flow`,
-            { val: objektarry[i].flow, ack: true },
-          );
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `flowMax`,
-            { val: objektarry[i].flowMax, ack: true },
-          );
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `power`,
-            { val: objektarry[i].power, ack: true },
-          );
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `flags`,
-            { val: objektarry[i].flags, ack: true },
-          );
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `Error`,
-            { val: objektarry[i].error, ack: true },
-          );
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `Setpoint`, {
+            val: objektarry[i].setpoint,
+            ack: true,
+          });
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `tLimit`, {
+            val: objektarry[i].tLimit,
+            ack: true,
+          });
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `flow`, {
+            val: objektarry[i].flow,
+            ack: true,
+          });
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `flowMax`, {
+            val: objektarry[i].flowMax,
+            ack: true,
+          });
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `power`, {
+            val: objektarry[i].power,
+            ack: true,
+          });
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `flags`, {
+            val: objektarry[i].flags,
+            ack: true,
+          });
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `Error`, {
+            val: objektarry[i].error,
+            ack: true,
+          });
           const setpoint2 = objektarry[i].setpoint / 10;
-          await das.setStateChangedAsync(
-            `${generatedArray[i].busid}.` + `Themperatur`,
-            { val: setpoint2, ack: true },
-          );
+          await das.setStateChangedAsync(`${generatedArray[i].busid}.` + `Themperatur`, { val: setpoint2, ack: true });
           await das.setStateChangedAsync("info.connection", {
             val: true,
             ack: true,
@@ -241,184 +235,148 @@ class ClageDsx extends utils.Adapter {
 
       for (const test in generatedArray) {
         const id = generatedArray[test].id;
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `Name`,
-          {
-            type: "state",
-            common: {
-              name: "Name",
-              type: "string",
-              role: "info.name",
-              read: true,
-              write: true,
-            },
-            native: { id },
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `Name`, {
+          type: "state",
+          common: {
+            name: "Name",
+            type: "string",
+            role: "info.name",
+            read: true,
+            write: true,
           },
-        );
+          native: { id },
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `busID`,
-          {
-            type: "state",
-            common: {
-              name: "BusId",
-              type: "number",
-              role: "info.address",
-              read: true,
-              write: false,
-            },
-            native: {},
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `busID`, {
+          type: "state",
+          common: {
+            name: "BusId",
+            type: "number",
+            role: "info.address",
+            read: true,
+            write: false,
           },
-        );
+          native: {},
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `id`,
-          {
-            type: "state",
-            common: {
-              name: "id",
-              type: "string",
-              role: "info.address",
-              read: true,
-              write: false,
-            },
-            native: {},
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `id`, {
+          type: "state",
+          common: {
+            name: "id",
+            type: "string",
+            role: "info.address",
+            read: true,
+            write: false,
           },
-        );
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `Setpoint`,
-          {
-            type: "state",
-            common: {
-              name: "Setpoint",
-              type: "number",
-              role: "level",
-              read: true,
-              write: true,
-            },
-            native: { id },
+          native: {},
+        });
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `Setpoint`, {
+          type: "state",
+          common: {
+            name: "Setpoint",
+            type: "number",
+            role: "level",
+            read: true,
+            write: true,
           },
-        );
+          native: { id },
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `tLimit`,
-          {
-            type: "state",
-            common: {
-              name: "tLimit",
-              type: "number",
-              role: "level",
-              read: true,
-              write: true,
-            },
-            native: {},
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `tLimit`, {
+          type: "state",
+          common: {
+            name: "tLimit",
+            type: "number",
+            role: "level",
+            read: true,
+            write: true,
           },
-        );
+          native: {},
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `Error`,
-          {
-            type: "state",
-            common: {
-              name: "Error",
-              type: "number",
-              role: "value",
-              read: true,
-              write: false,
-            },
-            native: {},
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `Error`, {
+          type: "state",
+          common: {
+            name: "Error",
+            type: "number",
+            role: "value",
+            read: true,
+            write: false,
           },
-        );
+          native: {},
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `flags`,
-          {
-            type: "state",
-            common: {
-              name: "flags",
-              type: "number",
-              role: "value",
-              read: true,
-              write: false,
-            },
-            native: {},
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `flags`, {
+          type: "state",
+          common: {
+            name: "flags",
+            type: "number",
+            role: "value",
+            read: true,
+            write: false,
           },
-        );
+          native: {},
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `power`,
-          {
-            type: "state",
-            common: {
-              name: "Power",
-              type: "number",
-              role: "value",
-              read: true,
-              write: false,
-            },
-            native: {},
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `power`, {
+          type: "state",
+          common: {
+            name: "Power",
+            type: "number",
+            role: "value",
+            read: true,
+            write: false,
           },
-        );
+          native: {},
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `Themperatur`,
-          {
-            type: "state",
-            common: {
-              name: "Water",
-              type: "number",
-              role: "value.temperature",
-              read: true,
-              write: false,
-            },
-            native: {},
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `Themperatur`, {
+          type: "state",
+          common: {
+            name: "Water",
+            type: "number",
+            role: "value.temperature",
+            read: true,
+            write: false,
           },
-        );
+          native: {},
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `error_text`,
-          {
-            type: "state",
-            common: {
-              name: "Error_Text",
-              type: "string",
-              role: "text",
-              read: true,
-              write: false,
-            },
-            native: {},
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `error_text`, {
+          type: "state",
+          common: {
+            name: "Error_Text",
+            type: "string",
+            role: "text",
+            read: true,
+            write: false,
           },
-        );
+          native: {},
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `flow`,
-          {
-            type: "state",
-            common: {
-              name: "flow",
-              type: "number",
-              role: "value",
-              read: true,
-              write: false,
-            },
-            native: {},
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `flow`, {
+          type: "state",
+          common: {
+            name: "flow",
+            type: "number",
+            role: "value",
+            read: true,
+            write: false,
           },
-        );
+          native: {},
+        });
 
-        await this.setObjectNotExistsAsync(
-          `${generatedArray[test].busid}.` + `flowMax`,
-          {
-            type: "state",
-            common: {
-              name: "flowMax",
-              type: "number",
-              role: "level",
-              read: true,
-              write: true,
-            },
-            native: { id },
+        await this.setObjectNotExistsAsync(`${generatedArray[test].busid}.` + `flowMax`, {
+          type: "state",
+          common: {
+            name: "flowMax",
+            type: "number",
+            role: "level",
+            read: true,
+            write: true,
           },
-        );
+          native: { id },
+        });
       }
     } catch (e) {
       das.log.error(e);
@@ -461,16 +419,12 @@ class ClageDsx extends utils.Adapter {
       //this.log.info(`state ${objName2}`);
       switch (objName) {
         case "Setpoint":
-          await instance.put(
-            `https://${serverUrl}/devices/setpoint/${objName2}`,
-            `data=${state.val}`,
-            {
-              auth: {
-                username: benutzer,
-                password: password,
-              },
+          await instance.put(`https://${serverUrl}/devices/setpoint/${objName2}`, `data=${state.val}`, {
+            auth: {
+              username: benutzer,
+              password: password,
             },
-          );
+          });
           break;
 
         case "flowMax":
@@ -480,43 +434,31 @@ class ClageDsx extends utils.Adapter {
 					  rejectUnauthorized: false
 						})
 					  });*/
-          await instance.put(
-            `https://${serverUrl}/devices/setup/${objName2}`,
-            `flowMax=${state.val}`,
-            {
-              auth: {
-                username: benutzer,
-                password: password,
-              },
+          await instance.put(`https://${serverUrl}/devices/setup/${objName2}`, `flowMax=${state.val}`, {
+            auth: {
+              username: benutzer,
+              password: password,
             },
-          );
+          });
           //this.log.info("flow geklappt "+"https://"+serverUrl+"/devices/setup/"+objName2);
           break;
 
         case "Name":
-          await instance.put(
-            `https://${serverUrl}/devices/${objName2}`,
-            `name=${state.val}`,
-            {
-              auth: {
-                username: benutzer,
-                password: password,
-              },
+          await instance.put(`https://${serverUrl}/devices/${objName2}`, `name=${state.val}`, {
+            auth: {
+              username: benutzer,
+              password: password,
             },
-          );
+          });
           break;
         case "Themperatur": {
           const setpoint2 = Number(state.val) * 10;
-          await instance.put(
-            `https://${serverUrl}/devices/setpoint/${objName2}`,
-            `data=${setpoint2}`,
-            {
-              auth: {
-                username: benutzer,
-                password: password,
-              },
+          await instance.put(`https://${serverUrl}/devices/setpoint/${objName2}`, `data=${setpoint2}`, {
+            auth: {
+              username: benutzer,
+              password: password,
             },
-          );
+          });
           break;
         }
 

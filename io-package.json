@@ -1,129 +1,122 @@
 {
-	"common": {
-		"name": "clage-dsx",
-		"version": "0.0.2",
-		"news": {
-			"0.0.2": {
-				"en": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
-				"de": "Abhaengigkeiten und Kompatibilitaet fuer aktuelle ioBroker- und Node.js-Versionen aktualisiert.",
-				"ru": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
-				"pt": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
-				"nl": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
-				"fr": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
-				"it": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
-				"es": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
-				"pl": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
-				"uk": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
-				"zh-cn": "Updated dependencies and compatibility for current ioBroker and Node.js versions."
-			},
-			"0.0.1": {
-				"en": "initial release",
-				"de": "Erstveröffentlichung",
-				"ru": "Начальная версия",
-				"pt": "lançamento inicial",
-				"nl": "Eerste uitgave",
-				"fr": "Première version",
-				"it": "Versione iniziale",
-				"es": "Versión inicial",
-				"pl": "Pierwsze wydanie",
-				"uk": "Initial release",
-				"zh-cn": "首次出版"
-			}
-		},
-		"titleLang": {
-			"en": "clage-dsx",
-			"de": "clage-dsx",
-			"ru": "clage-dsx",
-			"pt": "clage-dsx",
-			"nl": "clage-dsx",
-			"fr": "clage-dsx",
-			"it": "clage-dsx",
-			"es": "clage-dsx",
-			"pl": "clage-dsx",
-			"uk": "clage-dsx",
-			"zh-cn": "clage-dsx"
-		},
-		"desc": {
-			"en": "connection to clage dsx wather Heater",
-			"de": "verbindung zu clage dsx wather Heater",
-			"ru": "подключение к clage dsx wather Heater",
-			"pt": "conexão com o aquecedor de wather dsx clage",
-			"nl": "verbinding met klei dsxwaze Heater",
-			"fr": "connexion à clage dsx wather Heater",
-			"it": "connessione al clage dsx wather Heater",
-			"es": "conexión a clage dsx wather Heater",
-			"pl": "w związku z tym księgowy",
-			"uk": "підключення до клітки dsx ватер нагрівач",
-			"zh-cn": "2. 冲突"
-		},
-		"authors": [
-			"TheBam <elektrobam@gmx.de>"
-		],
-		"keywords": [
-			"water heater",
-			"clage"
-		],
-		"licenseInformation": {
-			"type": "free",
-			"license": "MIT"
-		},
-		"platform": "Javascript/Node.js",
-		"icon": "clage-dsx.png",
-		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/TheBam1990/ioBroker.clage-dsx/master/admin/clage-dsx.png",
-		"readme": "https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/README.md",
-		"loglevel": "info",
-		"mode": "daemon",
-		"type": "hardware",
-		"tier": 3,
-		"compact": true,
-		"connectionType": "local",
-		"dataSource": "poll",
-		"adminUI": {
-			"config": "json"
-		},
-		"dependencies": [
-			{
-				"js-controller": ">=6.0.11"
-			}
-		],
-		"globalDependencies": [
-			{
-				"admin": ">=7.6.20"
-			}
-		]
-	},
-	"encryptedNative": [
-        "apiKey"
+  "common": {
+    "name": "clage-dsx",
+    "version": "0.0.2",
+    "news": {
+      "0.0.2": {
+        "en": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+        "de": "Abhaengigkeiten und Kompatibilitaet fuer aktuelle ioBroker- und Node.js-Versionen aktualisiert.",
+        "ru": "Обновлены зависимости и совместимость с актуальными версиями ioBroker и Node.js.",
+        "pt": "Dependências e compatibilidade atualizadas para as versões atuais do ioBroker e Node.js.",
+        "nl": "Afhankelijkheden en compatibiliteit bijgewerkt voor actuele ioBroker- en Node.js-versies.",
+        "fr": "Dépendances et compatibilité mises à jour pour les versions actuelles d'ioBroker et Node.js.",
+        "it": "Dipendenze e compatibilità aggiornate per le versioni attuali di ioBroker e Node.js.",
+        "es": "Dependencias y compatibilidad actualizadas para las versiones actuales de ioBroker y Node.js.",
+        "pl": "Zaktualizowano zależności i zgodność z aktualnymi wersjami ioBroker i Node.js.",
+        "uk": "Оновлено залежності та сумісність з актуальними версіями ioBroker і Node.js.",
+        "zh-cn": "已更新依赖项，以兼容当前版本的 ioBroker 和 Node.js。"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "uk": "Initial release",
+        "zh-cn": "首次出版"
+      }
+    },
+    "titleLang": {
+      "en": "clage-dsx",
+      "de": "clage-dsx",
+      "ru": "clage-dsx",
+      "pt": "clage-dsx",
+      "nl": "clage-dsx",
+      "fr": "clage-dsx",
+      "it": "clage-dsx",
+      "es": "clage-dsx",
+      "pl": "clage-dsx",
+      "uk": "clage-dsx",
+      "zh-cn": "clage-dsx"
+    },
+    "desc": {
+      "en": "connection to clage dsx wather Heater",
+      "de": "verbindung zu clage dsx wather Heater",
+      "ru": "подключение к clage dsx wather Heater",
+      "pt": "conexão com o aquecedor de wather dsx clage",
+      "nl": "verbinding met klei dsxwaze Heater",
+      "fr": "connexion à clage dsx wather Heater",
+      "it": "connessione al clage dsx wather Heater",
+      "es": "conexión a clage dsx wather Heater",
+      "pl": "w związku z tym księgowy",
+      "uk": "підключення до клітки dsx ватер нагрівач",
+      "zh-cn": "2. 冲突"
+    },
+    "authors": ["TheBam <elektrobam@gmx.de>"],
+    "keywords": ["water heater", "clage"],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "clage-dsx.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/TheBam1990/ioBroker.clage-dsx/master/admin/clage-dsx.png",
+    "readme": "https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "hardware",
+    "tier": 3,
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
     ],
-    "protectedNative": [
-        "apiKey"
-    ],
-	"native": {
-		"port": "",
-		"apiKey": "",
-		"adresse": ""
-	},
-	"objects": [],
-	"instanceObjects": [{
-		"_id": "info",
-		"type": "channel",
-		"common": {
-			"name": "Information"
-		},
-		"native": {}
-	}, {
-	"_id": "info.connection",
-	"type": "state",
-	"common": {
-	  "role": "indicator.connected",
-	  "name": "If connected to my gateway",
-	  "type": "boolean",
-	  "read": true,
-	  "write": false,
-	  "def": false
-	},
-	"native": {}
-  }
-]
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.20"
+      }
+    ]
+  },
+  "encryptedNative": ["apiKey"],
+  "protectedNative": ["apiKey"],
+  "native": {
+    "port": "",
+    "apiKey": "",
+    "adresse": ""
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "If connected to my gateway",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }
