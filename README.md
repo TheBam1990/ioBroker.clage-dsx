@@ -26,10 +26,12 @@ The implementation is based on the included [CLAGE Home Server API specification
 Open the instance settings and enter:
 
 1. **CLAGE Home Server IP address**, for example `192.168.2.35` (without `https://`)
-2. **API user name**
-3. **API password**
+2. **API user name**, for example `admin`
+3. **API password**, for example `geheim`
 
 All three fields are required. The historical native configuration key for the user name is called `port`; this is retained for compatibility with existing installations.
+
+The values `admin` and `geheim` are examples from the CLAGE API documentation. Use the API credentials configured on your own Home Server; do not use the example password unless it is actually configured there.
 
 The Home Server normally uses a self-signed TLS certificate. The adapter therefore accepts the local certificate when connecting directly to the configured device.
 

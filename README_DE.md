@@ -24,10 +24,12 @@ Grundlage ist die mitgelieferte [CLAGE Home Server API-Spezifikation v1.3.4](CLA
 In den Einstellungen der Instanz werden drei Werte eingetragen:
 
 1. **IP-Adresse des CLAGE Home Servers**, zum Beispiel `192.168.2.35` (ohne `https://`)
-2. **API-Benutzername**
-3. **API-Passwort**
+2. **API-Benutzername**, zum Beispiel `admin`
+3. **API-Passwort**, zum Beispiel `geheim`
 
 Alle drei Felder sind erforderlich. Der historische native Konfigurationsschlüssel für den Benutzernamen heißt `port`; er bleibt zur Kompatibilität mit bestehenden Installationen erhalten.
+
+Die Werte `admin` und `geheim` sind Beispiele aus der CLAGE-API-Dokumentation. Es müssen die tatsächlich auf dem eigenen Home Server eingerichteten API-Zugangsdaten verwendet werden; das Beispielpasswort funktioniert nur, wenn es dort genauso konfiguriert wurde.
 
 Der Home Server verwendet normalerweise ein selbstsigniertes TLS-Zertifikat. Der Adapter akzeptiert dieses lokale Zertifikat bei der direkten Verbindung mit dem konfigurierten Gerät.
 
