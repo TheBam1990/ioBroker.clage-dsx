@@ -30,6 +30,12 @@ Sowie ein Name kann auch eingegeben werden
 
 ## Changelog
 
+### 0.0.2
+
+* Laufzeitabhaengigkeiten fuer aktuelle ioBroker- und Node.js-Versionen aktualisiert
+* Administrationsoberflaeche auf responsive JSON Config umgestellt
+* Aktuelle ioBroker-Paketmetadaten und CI-Tests fuer Node.js 20, 22 und 24 ergaenzt
+
 ### 0.0.1
 * (TheBam) initial release
 

@@ -1,0 +1,50 @@
+{
+  "type": "panel",
+  "i18n": false,
+  "items": {
+    "intro": {
+      "type": "infoBox",
+      "text": {
+        "en": "Enter the CLAGE Home Server address and its API credentials. All three fields are required.",
+        "de": "Adresse des CLAGE Home Servers und dessen API-Zugangsdaten eingeben. Alle drei Felder werden benoetigt."
+      },
+      "newLine": true,
+      "xs": 12
+    },
+    "adresse": {
+      "type": "ip",
+      "label": {
+        "en": "CLAGE Home Server IP address",
+        "de": "IP-Adresse des CLAGE Home Servers"
+      },
+      "listenOnAllPorts": false,
+      "onlyIp4": true,
+      "noInternal": false,
+      "xs": 12,
+      "sm": 6
+    },
+    "port": {
+      "type": "text",
+      "label": {
+        "en": "API user name",
+        "de": "API-Benutzername"
+      },
+      "help": {
+        "en": "The historical configuration key is named port, but this value is the user name.",
+        "de": "Der historische Konfigurationsschluessel heisst port, der Wert ist jedoch der Benutzername."
+      },
+      "xs": 12,
+      "sm": 6
+    },
+    "apiKey": {
+      "type": "password",
+      "label": {
+        "en": "API password",
+        "de": "API-Passwort"
+      },
+      "visible": true,
+      "xs": 12,
+      "sm": 6
+    }
+  }
+}

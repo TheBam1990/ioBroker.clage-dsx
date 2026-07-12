@@ -1,6 +1,6 @@
 {
   "name": "iobroker.clage-dsx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "connektion to clage dsx wather Heater",
   "author": {
     "name": "TheBam",
@@ -9,19 +9,32 @@
   "homepage": "https://github.com/TheBam1990/ioBroker.clage-dsx",
   "license": "MIT",
   "keywords": [
+    "ioBroker",
     "water heater",
     "clage"
   ],
+  "files": [
+    "admin",
+    "io-package.json",
+    "lib",
+    "LICENSE",
+    "main.js",
+    "README.md",
+    "README_DE.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/TheBam1990/ioBroker.clage-dsx"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.6.7",
-    "axios": "^0.27.2"
+    "@iobroker/adapter-core": "^3.4.1",
+    "axios": "^1.18.1"
   },
   "devDependencies": {
-    "@iobroker/testing": "^4.1.0",
+    "@iobroker/testing": "^5.3.0",
     "@types/chai": "^4.3.3",
     "@types/chai-as-promised": "^7.1.5",
     "@types/gulp": "^4.0.9",

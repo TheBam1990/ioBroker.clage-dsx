@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "clage-dsx",
-		"version": "0.0.1",
+		"version": "0.0.2",
 		"news": {
+			"0.0.2": {
+				"en": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+				"de": "Abhaengigkeiten und Kompatibilitaet fuer aktuelle ioBroker- und Node.js-Versionen aktualisiert.",
+				"ru": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+				"pt": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+				"nl": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+				"fr": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+				"it": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+				"es": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+				"pl": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+				"uk": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
+				"zh-cn": "Updated dependencies and compatibility for current ioBroker and Node.js versions."
+			},
 			"0.0.1": {
 				"en": "initial release",
 				"de": "Erstveröffentlichung",
@@ -13,6 +26,7 @@
 				"it": "Versione iniziale",
 				"es": "Versión inicial",
 				"pl": "Pierwsze wydanie",
+				"uk": "Initial release",
 				"zh-cn": "首次出版"
 			}
 		},
@@ -26,6 +40,7 @@
 			"it": "clage-dsx",
 			"es": "clage-dsx",
 			"pl": "clage-dsx",
+			"uk": "clage-dsx",
 			"zh-cn": "clage-dsx"
 		},
 		"desc": {
@@ -48,7 +63,10 @@
 			"water heater",
 			"clage"
 		],
-		"license": "MIT",
+		"licenseInformation": {
+			"type": "free",
+			"license": "MIT"
+		},
 		"platform": "Javascript/Node.js",
 		"icon": "clage-dsx.png",
 		"enabled": true,
@@ -57,18 +75,21 @@
 		"loglevel": "info",
 		"mode": "daemon",
 		"type": "hardware",
+		"tier": 3,
 		"compact": true,
 		"connectionType": "local",
 		"dataSource": "poll",
-		"materialize": true,
+		"adminUI": {
+			"config": "json"
+		},
 		"dependencies": [
 			{
-				"js-controller": ">=4.0.0"
+				"js-controller": ">=6.0.11"
 			}
 		],
 		"globalDependencies": [
 			{
-				"admin": ">= 4.0.9"
+				"admin": ">=7.6.20"
 			}
 		]
 	},

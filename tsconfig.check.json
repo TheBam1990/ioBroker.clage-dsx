@@ -3,12 +3,15 @@
 	"extends": "./tsconfig.json",
 	"compilerOptions": {},
 	"include": [
-		"**/*.js",
-		"**/*.d.ts"
+		"main.js",
+		"lib/**/*.js",
+		"lib/**/*.d.ts",
+		"admin/**/*.js",
+		"admin/**/*.d.ts"
 	],
 	"exclude": [
 		"**/build",
-		"node_modules/",
+		"node_modules/**",
 		"widgets/",
 		"gulpfile.js"
 	]
