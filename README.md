@@ -81,6 +81,10 @@ Destructive operations such as unregistering devices, changing the Home Server r
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
 ### 0.0.2
 
 - Updated runtime dependencies for current ioBroker and Node.js versions
