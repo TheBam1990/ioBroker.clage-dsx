@@ -25,7 +25,7 @@ const instance = axios.create({
 });
 
 // Load your modules here, e.g.:
-// const fs = require("fs");
+// const fs = require("node:fs");
 
 class ClageDsx extends utils.Adapter {
   /**
