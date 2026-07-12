@@ -47,6 +47,8 @@ As well as a name can also be entered
 ### 0.0.1
 * (TheBam) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
