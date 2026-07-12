@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "clage-dsx",
-    "version": "0.0.2",
+    "version": "0.0.6",
     "news": {
+      "0.0.6": {
+        "en": "Added complete Home Server monitoring, consumption and error history, writable setup values, timer management and long polling.",
+        "de": "Vollständige Home-Server-Überwachung, Verbrauchs- und Fehlerhistorie, schreibbare Geräteeinstellungen, Timerverwaltung und Long Polling ergänzt.",
+        "ru": "Добавлены полный мониторинг Home Server, история потребления и ошибок, изменяемые настройки, таймеры и long polling.",
+        "pt": "Adicionados monitorização completa do Home Server, histórico de consumo e erros, definições graváveis, temporizadores e long polling.",
+        "nl": "Volledige Home Server-bewaking, verbruiks- en foutgeschiedenis, schrijfbare instellingen, timers en long polling toegevoegd.",
+        "fr": "Ajout de la surveillance complète du Home Server, de l'historique de consommation et des erreurs, des réglages modifiables, des minuteries et du long polling.",
+        "it": "Aggiunti monitoraggio completo dell'Home Server, cronologia di consumi ed errori, impostazioni scrivibili, timer e long polling.",
+        "es": "Se añadieron monitorización completa del Home Server, historial de consumo y errores, ajustes editables, temporizadores y long polling.",
+        "pl": "Dodano pełne monitorowanie Home Server, historię zużycia i błędów, zapisywalne ustawienia, timery i long polling.",
+        "uk": "Додано повний моніторинг Home Server, історію споживання та помилок, змінювані налаштування, таймери й long polling.",
+        "zh-cn": "新增完整的 Home Server 监控、用量和错误历史、可写设置、定时器管理及长轮询。"
+      },
       "0.0.2": {
         "en": "Updated dependencies and compatibility for current ioBroker and Node.js versions.",
         "de": "Abhaengigkeiten und Kompatibilitaet fuer aktuelle ioBroker- und Node.js-Versionen aktualisiert.",
@@ -44,8 +57,8 @@
       "zh-cn": "clage-dsx"
     },
     "desc": {
-      "en": "connection to clage dsx wather Heater",
-      "de": "verbindung zu clage dsx wather Heater",
+      "en": "Control and monitor CLAGE water heaters through the Home Server API",
+      "de": "CLAGE-Durchlauferhitzer über die Home-Server-API steuern und überwachen",
       "ru": "подключение к clage dsx wather Heater",
       "pt": "conexão com o aquecedor de wather dsx clage",
       "nl": "verbinding met klei dsxwaze Heater",
@@ -93,7 +106,12 @@
   "native": {
     "port": "",
     "apiKey": "",
-    "adresse": ""
+    "adresse": "",
+    "activePollMs": 2000,
+    "idlePollMs": 30000,
+    "detailsPollMs": 300000,
+    "historyDays": 30,
+    "longPolling": true
   },
   "objects": [],
   "instanceObjects": [

@@ -37,13 +37,14 @@ The Home Server normally uses a self-signed TLS certificate. The adapter therefo
 
 For every registered CLAGE device, the adapter creates states for:
 
-- device name, device ID and bus ID
-- temperature setpoint
-- configured temperature limit
-- current flow and maximum flow
-- current power value
-- device flags and error code
-- calculated setpoint temperature in °C
+- identity, connection state, RSSI, LQI, API access mask and last radio activity
+- setpoint, temperature limit, inlet/outlet temperatures and all four temperature presets
+- flow, flow limit, valve position, raw and calculated power, heating state and errors
+- firmware and serial numbers, power-unit information and operating-time counters
+- total consumption plus the last draw-off cycle and consumption history as JSON
+- current error plus error history as JSON
+- Home Server version, identity, radio channel, address and advertised services
+- all timers, both globally and filtered per device
 
 Writable states:
 
@@ -51,25 +52,22 @@ Writable states:
 - `Themperatur`: temperature in °C; retained with its historical spelling for compatibility
 - `flowMax`: flow limit in tenths of a litre per minute; special API values include `253` (ECO) and `254` (AUTO)
 - `Name`: device name
+- `setup.flowMax`, `setup.loadShedding`, `setup.scaldProtection` and `setup.sound`
+- `timers.createJson`, `timers.updateJson` and `timers.deleteId` for controlled timer management
 
 `info.connection` indicates whether the Home Server is reachable and accepts the configured credentials.
 
-## Planned API extensions
+The adapter checks the API access mask before writes. Setpoint changes are debounced by two seconds, active devices are refreshed more frequently, and the device list uses sequential HTTP long polling by default. Intervals, long polling and the consumption-history period (30 days by default) can be adjusted in the adapter configuration.
 
-The CLAGE API provides additional functions that are not exposed by the current adapter yet. Suitable future extensions include:
+## Timer JSON
 
-- inlet/outlet temperature, temperature memories, valve position and maximum power
-- RSSI, LQI, device activity and connected state
-- firmware and serial numbers
-- total water and energy consumption
-- last draw-off cycle and historical consumption records
-- device error history with text and timestamps
-- scald protection, acoustic signal and load-shedding settings
-- read-only timer overview and, later, controlled timer editing
-- Home Server information such as version, radio channel and address
-- HTTP long polling to reduce unnecessary requests
+Create a timer by writing JSON such as the following to `timers.createJson`:
 
-Destructive operations such as unregistering devices, changing the Home Server radio address or deleting all timers should only be added with explicit confirmation and permission checks.
+```json
+{"type":0,"weekdays":127,"start":"06:00","stop":"07:00","deviceId":"A001FF0034","setpoint":450}
+```
+
+For updates, write the same structure including a numeric `id` to `timers.updateJson`. To delete one timer, write its numeric ID to `timers.deleteId`. Destructive bulk operations, device unregistering and radio-address changes are intentionally not exposed.
 
 ## Troubleshooting
 
@@ -80,6 +78,14 @@ Destructive operations such as unregistering devices, changing the Home Server r
 - A device can be registered but temporarily unavailable. The API reports this as `404`, `410` or a negative device error code.
 
 ## Changelog
+
+### 0.0.6
+
+- Added live temperatures, presets, valve position, calculated power and radio diagnostics
+- Added setup, consumption and error history data
+- Added permission-checked setup writes and timer management
+- Added Home Server information, adaptive polling and sequential HTTP long polling
+- Added configurable polling intervals
 
 ### 0.0.2
 

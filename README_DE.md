@@ -35,13 +35,14 @@ Der Home Server verwendet normalerweise ein selbstsigniertes TLS-Zertifikat. Der
 
 Für jedes angemeldete CLAGE-Gerät legt der Adapter Datenpunkte an für:
 
-- Gerätename, Geräte-ID und Bus-ID
-- Solltemperatur
-- eingestellte Temperaturgrenze
-- aktuellen und maximalen Durchfluss
-- aktuellen Leistungswert
-- Statusflags und Fehlercode
-- berechnete Solltemperatur in °C
+- Identität, Verbindungsstatus, RSSI, LQI, API-Rechtemaske und letzte Funkaktivität
+- Sollwert, Temperaturgrenze, Ein-/Auslauftemperatur und alle vier Temperaturspeicher
+- Durchfluss, Durchflussgrenze, Ventilstellung, Rohwert und berechnete Leistung, Heizstatus und Fehler
+- Firmware- und Seriennummern, Leistungsteilinformationen und Betriebszeitzähler
+- Gesamtverbrauch sowie letzten Zapfvorgang und Verbrauchshistorie als JSON
+- aktuellen Fehler und Fehlerhistorie als JSON
+- Version, Identität, Funkkanal, Adresse und angebotene Dienste des Home Servers
+- alle Timer, sowohl global als auch je Gerät gefiltert
 
 Schreibbare Datenpunkte:
 
@@ -49,25 +50,22 @@ Schreibbare Datenpunkte:
 - `Themperatur`: Temperatur in °C; die historische Schreibweise bleibt aus Kompatibilitätsgründen erhalten
 - `flowMax`: Durchflussgrenze in 0,1 l/min; besondere API-Werte sind `253` (ECO) und `254` (AUTO)
 - `Name`: Gerätename
+- `setup.flowMax`, `setup.loadShedding`, `setup.scaldProtection` und `setup.sound`
+- `timers.createJson`, `timers.updateJson` und `timers.deleteId` zur kontrollierten Timerverwaltung
 
 `info.connection` zeigt an, ob der Home Server erreichbar ist und die eingetragenen Zugangsdaten akzeptiert.
 
-## Sinnvolle API-Erweiterungen
+Der Adapter prüft vor Schreibzugriffen die API-Rechtemaske. Sollwertänderungen werden zwei Sekunden gebündelt, aktive Geräte häufiger aktualisiert und die Geräteliste standardmäßig mit sequenziellem HTTP Long Polling abgefragt. Intervalle, Long Polling und der Zeitraum der Verbrauchshistorie (standardmäßig 30 Tage) sind in der Adapterkonfiguration einstellbar.
 
-Die CLAGE-API bietet weitere Funktionen, die der Adapter aktuell noch nicht abbildet. Sinnvolle nächste Ausbaustufen sind:
+## Timer-JSON
 
-- Einlauf-/Auslauftemperatur, Temperaturspeicher, Ventilstellung und Maximalleistung
-- RSSI, LQI, letzte Geräteaktivität und Online-Status
-- Firmware- und Seriennummern
-- Gesamtverbrauch von Wasser und Energie
-- letzter Zapfvorgang und historische Verbrauchsdaten
-- interne Fehlerhistorie mit Text und Zeitstempeln
-- Verbrühschutz, Signalton und Lastabwurf
-- zunächst lesende Timerübersicht, später kontrollierte Timerbearbeitung
-- Home-Server-Informationen wie Version, Funkkanal und Adresse
-- HTTP Long Polling zur Vermeidung unnötiger Abfragen
+Ein Timer kann durch Schreiben eines JSON wie diesem auf `timers.createJson` angelegt werden:
 
-Gefährliche Funktionen wie das Abmelden von Geräten, das Ändern der Home-Server-Funkadresse oder das Löschen aller Timer sollten nur mit ausdrücklicher Bestätigung und Berechtigungsprüfung ergänzt werden.
+```json
+{"type":0,"weekdays":127,"start":"06:00","stop":"07:00","deviceId":"A001FF0034","setpoint":450}
+```
+
+Für Änderungen wird derselbe Aufbau mit numerischer `id` auf `timers.updateJson` geschrieben. Zum Löschen eines einzelnen Timers wird dessen numerische ID auf `timers.deleteId` geschrieben. Gefährliche Sammeloperationen, das Abmelden von Geräten und Änderungen der Funkadresse werden bewusst nicht angeboten.
 
 ## Fehlerbehebung
 
@@ -78,6 +76,14 @@ Gefährliche Funktionen wie das Abmelden von Geräten, das Ändern der Home-Serv
 - Ein Gerät kann angemeldet, aber vorübergehend nicht erreichbar sein. Die API meldet dies mit `404`, `410` oder einem negativen Gerätefehlercode.
 
 ## Changelog
+
+### 0.0.6
+
+- Live-Temperaturen, Temperaturspeicher, Ventilstellung, berechnete Leistung und Funkdiagnose ergänzt
+- Geräteeinstellungen, Verbrauchs- und Fehlerhistorie ergänzt
+- Rechtegeprüfte Schreibzugriffe auf Einstellungen und Timerverwaltung ergänzt
+- Home-Server-Informationen, adaptive Abfrage und sequenzielles HTTP Long Polling ergänzt
+- Abfrageintervalle konfigurierbar gemacht
 
 ### 0.0.2
 

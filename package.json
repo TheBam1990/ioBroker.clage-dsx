@@ -1,7 +1,7 @@
 {
   "name": "iobroker.clage-dsx",
-  "version": "0.0.2",
-  "description": "connektion to clage dsx wather Heater",
+  "version": "0.0.6",
+  "description": "Control and monitor CLAGE water heaters through the Home Server API",
   "author": {
     "name": "TheBam",
     "email": "elektrobam@gmx.de"
