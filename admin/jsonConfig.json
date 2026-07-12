@@ -95,8 +95,18 @@
       "type": "header",
       "text": {
         "en": "Polling",
-        "de": "Abfrageintervalle"
+        "de": "Abfrageintervalle",
+        "ru": "Интервалы опроса",
+        "pt": "Intervalos de consulta",
+        "nl": "Polling-intervallen",
+        "fr": "Intervalles d'interrogation",
+        "it": "Intervalli di polling",
+        "es": "Intervalos de consulta",
+        "pl": "Interwały odpytywania",
+        "uk": "Інтервали опитування",
+        "zh-cn": "轮询间隔"
       },
+      "size": 2,
       "newLine": true,
       "xs": 12
     },
@@ -104,7 +114,16 @@
       "type": "number",
       "label": {
         "en": "Active-device interval (ms)",
-        "de": "Intervall bei Wasserfluss (ms)"
+        "de": "Intervall bei Wasserfluss (ms)",
+        "ru": "Интервал активного устройства (мс)",
+        "pt": "Intervalo do dispositivo ativo (ms)",
+        "nl": "Interval actief apparaat (ms)",
+        "fr": "Intervalle appareil actif (ms)",
+        "it": "Intervallo dispositivo attivo (ms)",
+        "es": "Intervalo del dispositivo activo (ms)",
+        "pl": "Interwał aktywnego urządzenia (ms)",
+        "uk": "Інтервал активного пристрою (мс)",
+        "zh-cn": "活动设备间隔（毫秒）"
       },
       "min": 1000,
       "xs": 12,
@@ -117,7 +136,16 @@
       "type": "number",
       "label": {
         "en": "Idle-device interval (ms)",
-        "de": "Intervall im Ruhezustand (ms)"
+        "de": "Intervall im Ruhezustand (ms)",
+        "ru": "Интервал ожидания (мс)",
+        "pt": "Intervalo em repouso (ms)",
+        "nl": "Interval in rust (ms)",
+        "fr": "Intervalle au repos (ms)",
+        "it": "Intervallo inattivo (ms)",
+        "es": "Intervalo en reposo (ms)",
+        "pl": "Interwał bezczynności (ms)",
+        "uk": "Інтервал очікування (мс)",
+        "zh-cn": "空闲设备间隔（毫秒）"
       },
       "min": 5000,
       "xs": 12,
@@ -130,7 +158,16 @@
       "type": "number",
       "label": {
         "en": "History/setup interval (ms)",
-        "de": "Intervall für Historie/Einstellungen (ms)"
+        "de": "Intervall für Historie/Einstellungen (ms)",
+        "ru": "Интервал истории/настроек (мс)",
+        "pt": "Intervalo de histórico/configuração (ms)",
+        "nl": "Interval historie/instellingen (ms)",
+        "fr": "Intervalle historique/réglages (ms)",
+        "it": "Intervallo cronologia/impostazioni (ms)",
+        "es": "Intervalo de historial/ajustes (ms)",
+        "pl": "Interwał historii/ustawień (ms)",
+        "uk": "Інтервал історії/налаштувань (мс)",
+        "zh-cn": "历史/设置间隔（毫秒）"
       },
       "min": 60000,
       "xs": 12,
@@ -143,7 +180,16 @@
       "type": "number",
       "label": {
         "en": "Consumption history (days)",
-        "de": "Verbrauchshistorie (Tage)"
+        "de": "Verbrauchshistorie (Tage)",
+        "ru": "История потребления (дни)",
+        "pt": "Histórico de consumo (dias)",
+        "nl": "Verbruiksgeschiedenis (dagen)",
+        "fr": "Historique de consommation (jours)",
+        "it": "Cronologia dei consumi (giorni)",
+        "es": "Historial de consumo (días)",
+        "pl": "Historia zużycia (dni)",
+        "uk": "Історія споживання (дні)",
+        "zh-cn": "用量历史（天）"
       },
       "min": 1,
       "xs": 12,
@@ -156,7 +202,16 @@
       "type": "checkbox",
       "label": {
         "en": "Use device-list long polling",
-        "de": "Long Polling für die Geräteliste verwenden"
+        "de": "Long Polling für die Geräteliste verwenden",
+        "ru": "Использовать long polling списка устройств",
+        "pt": "Usar long polling da lista de dispositivos",
+        "nl": "Long polling voor apparatenlijst gebruiken",
+        "fr": "Utiliser le long polling de la liste des appareils",
+        "it": "Usa long polling per l'elenco dispositivi",
+        "es": "Usar long polling para la lista de dispositivos",
+        "pl": "Użyj long pollingu listy urządzeń",
+        "uk": "Використовувати long polling списку пристроїв",
+        "zh-cn": "使用设备列表长轮询"
       },
       "xs": 12,
       "sm": 6,
