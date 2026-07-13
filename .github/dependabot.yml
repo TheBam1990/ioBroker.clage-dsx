@@ -1,15 +1,23 @@
+# Dependabot will run on day 25 of each month at 02:17 (Europe/Berlin timezone)
 version: 2
 updates:
-  - package-ecosystem: npm
-    directory: /
+
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: weekly
+      interval: 'weekly'
+      timezone: 'Europe/Berlin'
     cooldown:
       default-days: 7
     ignore:
-      - dependency-name: "@types/node"
-        update-types: ["version-update:semver-major"]
-  - package-ecosystem: github-actions
-    directory: /
+      - dependency-name: '@types/node'
+        update-types:
+          - 'version-update:semver-major'
+    open-pull-requests-limit: 15
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: weekly
+      interval: 'weekly'
+      timezone: 'Europe/Berlin'
+    open-pull-requests-limit: 15
