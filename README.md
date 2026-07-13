@@ -81,6 +81,10 @@ For updates, write the same structure including a numeric `id` to `timers.update
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
 ### 0.0.7
 
 - Corrected state roles for timestamps, version information and the numeric bus ID
