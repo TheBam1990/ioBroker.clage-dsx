@@ -81,6 +81,10 @@ For updates, write the same structure including a numeric `id` to `timers.update
 
 ## Changelog
 
+### 0.0.7
+
+- Corrected state roles for timestamps, version information and the numeric bus ID
+
 ### 0.0.6
 
 - Added live temperatures, presets, valve position, calculated power and radio diagnostics

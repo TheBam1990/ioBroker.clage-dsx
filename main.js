@@ -160,16 +160,16 @@ class ClageDsx extends utils.Adapter {
     await this.ensureChannel("timers", "Timer management");
     await this.ensureState("info.connection", "Connected", "boolean", "indicator.connected", true, false);
     await this.ensureState("info.lastError", "Last error", "string", "text", true, false);
-    await this.ensureState("info.lastUpdate", "Last successful update", "string", "value.time", true, false);
-    await this.ensureState("info.apiVersion", "API version", "string", "info.version", true, false);
+    await this.ensureState("info.lastUpdate", "Last successful update", "string", "text", true, false);
+    await this.ensureState("info.apiVersion", "API version", "string", "text", true, false);
     await this.ensureState("info.servicesJson", "Available services", "string", "json", true, false);
     for (const [id, name, type, role] of [
       ["server.id", "Server ID", "string", "info.serial"],
       ["server.name", "Server name", "string", "info.name"],
       ["server.channel", "Radio channel", "number", "value"],
       ["server.address", "Radio address", "number", "value"],
-      ["server.version", "Server version", "string", "info.version"],
-      ["server.revision", "Server revision", "string", "info.version"],
+      ["server.version", "Server version", "string", "text"],
+      ["server.revision", "Server revision", "string", "text"],
       ["timers.listJson", "All timers", "string", "json"],
       ["timers.lastResultJson", "Last timer command result", "string", "json"],
     ]) {
@@ -251,13 +251,13 @@ class ClageDsx extends utils.Adapter {
     }
     const definitions = [
       ["Name", "Device name", "string", "info.name", true, true],
-      ["busID", "Bus ID", "number", "info.address", true, false],
+      ["busID", "Bus ID", "number", "value", true, false],
       ["id", "Device ID", "string", "info.serial", true, false],
       ["connected", "Device connected", "boolean", "indicator.connected", true, false],
       ["rssi", "Signal strength", "number", "value", true, false, "dBm"],
       ["lqi", "Link quality indicator", "number", "value", true, false],
       ["access", "API access mask", "number", "value", true, false],
-      ["activity", "Last radio activity", "string", "value.time", true, false],
+      ["activity", "Last radio activity", "string", "text", true, false],
       ["Setpoint", "Setpoint raw", "number", "level.temperature", true, true, "0.1 °C"],
       ["Themperatur", "Setpoint temperature", "number", "level.temperature", true, true, "°C"],
       ["tLimit", "Temperature limit raw", "number", "value.temperature", true, false, "0.1 °C"],
@@ -297,7 +297,7 @@ class ClageDsx extends utils.Adapter {
     }
 
     const setup = [
-      ["swVersion", "Firmware version", "string", "info.version", false],
+      ["swVersion", "Firmware version", "string", "text", false],
       ["serialDevice", "Device serial number", "string", "info.serial", false],
       ["serialPowerUnit", "Power unit serial number", "string", "info.serial", false],
       ["flowMax", "Maximum flow raw", "number", "level", true, "0.1 l/min"],
@@ -328,7 +328,7 @@ class ClageDsx extends utils.Adapter {
 
     for (const [name, label, type, role, unit] of [
       ["lastId", "Last draw-off ID", "number", "value", ""],
-      ["lastTime", "Last draw-off time", "string", "value.time", ""],
+      ["lastTime", "Last draw-off time", "string", "text", ""],
       ["lastDuration", "Last draw-off duration", "number", "value.interval", "s"],
       ["lastEnergy", "Last draw-off energy", "number", "value.power.consumption", "Wh"],
       ["lastWater", "Last draw-off water", "number", "value", "l"],

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "clage-dsx",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "news": {
+      "0.0.7": {
+        "en": "Corrected state roles for timestamps, version information and the numeric bus ID.",
+        "de": "Datenpunktrollen für Zeitstempel, Versionsinformationen und die numerische Bus-ID korrigiert.",
+        "ru": "Исправлены роли состояний для временных меток, информации о версии и числового идентификатора шины.",
+        "pt": "Corrigidas as funções dos estados para marcas de tempo, informações de versão e o ID numérico do barramento.",
+        "nl": "State-rollen voor tijdstempels, versie-informatie en de numerieke bus-ID gecorrigeerd.",
+        "fr": "Correction des rôles des états pour les horodatages, les informations de version et l'identifiant numérique du bus.",
+        "it": "Corretti i ruoli degli stati per timestamp, informazioni sulla versione e ID bus numerico.",
+        "es": "Corregidos los roles de estado para marcas de tiempo, información de versión e ID numérico del bus.",
+        "pl": "Poprawiono role stanów dla znaczników czasu, informacji o wersji i numerycznego identyfikatora magistrali.",
+        "uk": "Виправлено ролі станів для часових міток, інформації про версію та числового ідентифікатора шини.",
+        "zh-cn": "修正了时间戳、版本信息和数字总线 ID 的状态角色。"
+      },
       "0.0.6": {
         "en": "Added complete Home Server monitoring, consumption and error history, writable setup values, timer management and long polling.",
         "de": "Vollständige Home-Server-Überwachung, Verbrauchs- und Fehlerhistorie, schreibbare Geräteeinstellungen, Timerverwaltung und Long Polling ergänzt.",

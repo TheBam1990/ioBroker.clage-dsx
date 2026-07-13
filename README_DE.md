@@ -79,6 +79,10 @@ Für Änderungen wird derselbe Aufbau mit numerischer `id` auf `timers.updateJso
 
 ## Changelog
 
+### 0.0.7
+
+- Datenpunktrollen für Zeitstempel, Versionsinformationen und die numerische Bus-ID korrigiert
+
 ### 0.0.6
 
 - Live-Temperaturen, Temperaturspeicher, Ventilstellung, berechnete Leistung und Funkdiagnose ergänzt
