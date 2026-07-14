@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "clage-dsx",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "news": {
+      "0.0.8": {
+        "en": "Fixed latest-repository review findings for roles, setup fields, polling limits and translations.",
+        "de": "Review-Hinweise zu Rollen, Setup-Feldern, Abfragegrenzen und Übersetzungen behoben.",
+        "ru": "Исправлены замечания проверки по ролям, полям настройки, ограничениям опроса и переводам.",
+        "pt": "Corrigidos os pontos da revisão relativos a funções, campos de configuração, limites de consulta e traduções.",
+        "nl": "Reviewpunten voor rollen, instelvelden, pollinglimieten en vertalingen opgelost.",
+        "fr": "Correction des remarques concernant les rôles, les champs de configuration, les limites d’interrogation et les traductions.",
+        "it": "Corretti i rilievi relativi a ruoli, campi di configurazione, limiti di polling e traduzioni.",
+        "es": "Corregidos los hallazgos sobre funciones, campos de configuración, límites de sondeo y traducciones.",
+        "pl": "Naprawiono uwagi dotyczące ról, pól konfiguracji, limitów odpytywania i tłumaczeń.",
+        "uk": "Виправлено зауваження щодо ролей, полів налаштування, обмежень опитування та перекладів.",
+        "zh-cn": "修复了角色、设置字段、轮询限制和翻译方面的审核问题。"
+      },
       "0.0.7": {
         "en": "Corrected state roles for timestamps, version information and the numeric bus ID.",
         "de": "Datenpunktrollen für Zeitstempel, Versionsinformationen und die numerische Bus-ID korrigiert.",
@@ -72,15 +85,15 @@
     "desc": {
       "en": "Control and monitor CLAGE water heaters through the Home Server API",
       "de": "CLAGE-Durchlauferhitzer über die Home-Server-API steuern und überwachen",
-      "ru": "подключение к clage dsx wather Heater",
-      "pt": "conexão com o aquecedor de wather dsx clage",
-      "nl": "verbinding met klei dsxwaze Heater",
-      "fr": "connexion à clage dsx wather Heater",
-      "it": "connessione al clage dsx wather Heater",
-      "es": "conexión a clage dsx wather Heater",
-      "pl": "w związku z tym księgowy",
-      "uk": "підключення до клітки dsx ватер нагрівач",
-      "zh-cn": "2. 冲突"
+      "ru": "Управление и мониторинг водонагревателей CLAGE через API Home Server",
+      "pt": "Controle e monitorização de aquecedores de água CLAGE através da API do Home Server",
+      "nl": "CLAGE-waterverwarmers bedienen en bewaken via de Home Server-API",
+      "fr": "Contrôler et surveiller les chauffe-eau CLAGE via l’API Home Server",
+      "it": "Controllo e monitoraggio degli scaldacqua CLAGE tramite l’API Home Server",
+      "es": "Control y supervisión de calentadores de agua CLAGE mediante la API de Home Server",
+      "pl": "Sterowanie i monitorowanie podgrzewaczy wody CLAGE przez interfejs API Home Server",
+      "uk": "Керування та моніторинг водонагрівачів CLAGE через API Home Server",
+      "zh-cn": "通过 Home Server API 控制和监控 CLAGE 热水器"
     },
     "authors": ["TheBam <elektrobam@gmx.de>"],
     "keywords": ["water heater", "clage"],

@@ -81,6 +81,13 @@ For updates, write the same structure including a numeric `id` to `timers.update
 
 ## Changelog
 
+### 0.0.8
+
+- Fixed all findings from the ioBroker latest-repository review.
+- Updated energy and timestamp state roles and clarified the legacy temperature state.
+- Restricted setup writes to registered API fields and added safe polling upper limits.
+- Corrected all adapter description translations.
+
 ### 0.0.7
 
 - Corrected state roles for timestamps, version information and the numeric bus ID
