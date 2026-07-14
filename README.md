@@ -81,6 +81,10 @@ For updates, write the same structure including a numeric `id` to `timers.update
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
 ### 0.0.8
 
 - Fixed all findings from the ioBroker latest-repository review.

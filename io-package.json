@@ -95,8 +95,13 @@
       "uk": "Керування та моніторинг водонагрівачів CLAGE через API Home Server",
       "zh-cn": "通过 Home Server API 控制和监控 CLAGE 热水器"
     },
-    "authors": ["TheBam <elektrobam@gmx.de>"],
-    "keywords": ["water heater", "clage"],
+    "authors": [
+      "TheBam <elektrobam@gmx.de>"
+    ],
+    "keywords": [
+      "water heater",
+      "clage"
+    ],
     "licenseInformation": {
       "type": "free",
       "license": "MIT"
@@ -123,12 +128,16 @@
     ],
     "globalDependencies": [
       {
-        "admin": ">=7.6.20"
+        "admin": ">=7.8.23"
       }
     ]
   },
-  "encryptedNative": ["apiKey"],
-  "protectedNative": ["apiKey"],
+  "encryptedNative": [
+    "apiKey"
+  ],
+  "protectedNative": [
+    "apiKey"
+  ],
   "native": {
     "port": "",
     "apiKey": "",
