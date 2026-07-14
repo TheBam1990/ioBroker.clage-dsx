@@ -102,6 +102,8 @@ For updates, write the same structure including a numeric `id` to `timers.update
 
 [Older changelog entries](CHANGELOG_OLD.md)
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 Copyright (c) 2026 TheBam <elektrobam@gmx.de>
