@@ -81,9 +81,10 @@ For updates, write the same structure including a numeric `id` to `timers.update
 
 ## Changelog
 
+### 0.0.9
 
-### **WORK IN PROGRESS**
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+- Fixed the Home Server address input so any IPv4 address, host name or host with an explicit port can be entered.
+- Updated the minimum Admin dependency to 7.8.23.
 
 ### 0.0.8
 

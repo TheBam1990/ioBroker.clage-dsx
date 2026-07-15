@@ -9,11 +9,9 @@
       "xs": 12
     },
     "adresse": {
-      "type": "ip",
+      "type": "text",
       "label": "CLAGE Home Server IP address",
-      "listenOnAllPorts": false,
-      "onlyIp4": true,
-      "noInternal": false,
+      "placeholder": "192.0.2.10",
       "xs": 12,
       "sm": 6,
       "md": 6,

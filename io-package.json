@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "clage-dsx",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "news": {
+      "0.0.9": {
+        "en": "Fixed the Home Server address field so any IP address or host name can be entered.",
+        "de": "Das Adressfeld des Home Servers wurde korrigiert, sodass jede IP-Adresse oder jeder Hostname eingegeben werden kann.",
+        "ru": "Исправлено поле адреса Home Server: теперь можно ввести любой IP-адрес или имя хоста.",
+        "pt": "Corrigido o campo de endereço do Home Server para permitir qualquer endereço IP ou nome de anfitrião.",
+        "nl": "Het adresveld van de Home Server is gecorrigeerd, zodat elk IP-adres of elke hostnaam kan worden ingevoerd.",
+        "fr": "Correction du champ d’adresse du Home Server afin de permettre toute adresse IP ou tout nom d’hôte.",
+        "it": "Corretto il campo dell’indirizzo Home Server per consentire qualsiasi indirizzo IP o nome host.",
+        "es": "Corregido el campo de dirección del Home Server para admitir cualquier dirección IP o nombre de host.",
+        "pl": "Poprawiono pole adresu Home Server, umożliwiając wpisanie dowolnego adresu IP lub nazwy hosta.",
+        "uk": "Виправлено поле адреси Home Server: тепер можна ввести будь-яку IP-адресу або ім’я хоста.",
+        "zh-cn": "修复了 Home Server 地址字段，现在可以输入任意 IP 地址或主机名。"
+      },
       "0.0.8": {
         "en": "Fixed latest-repository review findings for roles, setup fields, polling limits and translations.",
         "de": "Review-Hinweise zu Rollen, Setup-Feldern, Abfragegrenzen und Übersetzungen behoben.",
