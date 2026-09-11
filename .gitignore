@@ -1,7 +1,5 @@
-# No dot-directories except github/vscode
-.*/
-!.vscode/
-!.github/
+# Development metadata such as .devcontainer, .idea, .vscode and .github is
+# intentionally versioned in this repository.
 
 *.code-workspace
 node_modules
